@@ -1,7 +1,7 @@
 {
   "settings": {
     "currentPage": "index.html",
-    "name": "My Site",
+    "name": "Essteb",
     "theme": {
       "name": "mobirise3",
       "title": "Mobirise 3",
@@ -23,7 +23,9 @@
     },
     "versionFirst": "3.12.1",
     "uniqCompNum": 9,
-    "versionPublish": "3.12.1"
+    "versionPublish": "3.12.1",
+    "favicon": "",
+    "noImageResize": ""
   },
   "pages": {
     "index.html": {
