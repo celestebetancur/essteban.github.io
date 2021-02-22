@@ -1,24 +1,3 @@
-//////////////////////////////////////////////////////////////////////////
-//                       //                                             //
-//   -~=Manoylov AC=~-   //                 Snake Brush                 //
-//                       //                                             //
-//////////////////////////////////////////////////////////////////////////
-//                                                                      //
-// Controls:                                                            //
-//    mouse                                                             //
-//      press & move: mouse draw mode                                   //
-//                                                                      //
-//    keyboard                                                          //
-//        'c': clear canvas                                             //
-//        '[': iters -= 3                                               //
-//        ']': iters += 3                                               //
-//        'z': brush step -= 3                                          //
-//        'x': brush step += 3                                          //
-//        'q': brush scale -= .1                                        //
-//        'w': brush scale += .1                                        //
-//        's': save image                                               //
-//////////////////////////////////////////////////////////////////////////
-
 
 var img;
 var snBrush;
@@ -40,6 +19,7 @@ function setup() {
   cnv.style('left','2.5%');
   cnv.style('height','100%');
   cnv.style('z-index','1');
+  cnv.style('object-fit','cover');
 }
 
 function draw() {
@@ -50,6 +30,10 @@ function draw() {
       snBrush.addToPos(random(-snBrush.step, snBrush.step), random(-snBrush.step, snBrush.step)).updateSegmentsPos().draw();
     }
   }
+  fill(150,150,255,0.5);
+  stroke(255,255,255,0);
+  rect(0,0,img.width,img.height);
+  fill(255);
 }
 
 function SnakeBrush(x, y, segmentsCount, shapeDrawFn) {
@@ -125,7 +109,6 @@ function keyTyped() {
     case 'x': snBrush.step += 3; break;
     case 'q': snBrush.scale -= .1; break;
     case 'w': snBrush.scale += .1; break;
-    case 's': save('img_' + ~~random(100, 900) + '.jpg'); break;
   }
 
   if (~'qw'.indexOf(key.toLowerCase())) {

@@ -691,7 +691,7 @@ a {
 .cid-shmFnDfPIR {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-color: #bbbbbb;
+  background-color: rgb(191, 201, 255);
 }
 .cid-shmFnDfPIR .row {
   align-items: center;
@@ -711,6 +711,7 @@ a {
   width: 100%;
   position: relative;
   min-height: 60px;
+  padding:1rem;
 }
 .cid-shmIyVIlpT nav.navbar {
   position: fixed;
@@ -776,7 +777,7 @@ a {
 }
 .cid-shmIyVIlpT .dropdown-menu,
 .cid-shmIyVIlpT .navbar.opened {
-  background: #ffffff !important;
+  background: #aaaaaa !important;
 }
 .cid-shmIyVIlpT .nav-item:focus,
 .cid-shmIyVIlpT .nav-link:focus {
