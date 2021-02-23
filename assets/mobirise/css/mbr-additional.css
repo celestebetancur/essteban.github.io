@@ -281,14 +281,14 @@ body {
 .btn-black:focus,
 .btn-black.focus,
 .btn-black.active {
-  color: #ffffff !important;
+  color: #aaaaff !important;
   background-color: #000000 !important;
   border-color: #000000 !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 .btn-black.disabled,
 .btn-black:disabled {
-  color: #ffffff !important;
+  color: #aaaaff !important;
   background-color: #000000 !important;
   border-color: #000000 !important;
 }
@@ -522,7 +522,7 @@ a.text-white.active {
 a.text-black:hover,
 a.text-black:focus,
 a.text-black.active {
-  color: #000000 !important;
+  color: #0000ee !important;
 }
 a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]) {
   position: relative;
@@ -691,7 +691,7 @@ a {
 .cid-shmFnDfPIR {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-color: rgb(191, 201, 255);
+  background-color: #eee;
 }
 .cid-shmFnDfPIR .row {
   align-items: center;
@@ -1330,7 +1330,7 @@ a {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #000000;
+  background-color: #0000ff;
 }
 .cid-shmIyVIlpT button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -1729,7 +1729,7 @@ a {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #000000;
+  background-color: #0000ff;
 }
 .cid-shmIyVIlpT button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
@@ -1903,7 +1903,7 @@ a {
   margin: auto;
 }
 .cid-shmIyVIlpT .iconfont-wrapper {
-  color: #000000 !important;
+  color: #0000ff !important;
   font-size: 1.5rem;
   padding-right: .5rem;
 }
@@ -2115,7 +2115,7 @@ a {
   width: 30px;
   height: 2px;
   border-right: 5px;
-  background-color: #000000;
+  background-color: #0000dd;
 }
 .cid-shmIyVIlpT button.navbar-toggler .hamburger span:nth-child(1) {
   top: 0;
