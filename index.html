@@ -1,186 +1,137 @@
 <!DOCTYPE html>
-<html  >
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.1.4, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <meta name="description" content="Celeste Betancur Artist, live coder and multi-instrumentalist musician. She works on developing human-machine interfaces, especially designing programming tools for musical and visual expression.">
-  <meta name="canonical" content="https://essteban.github.io/">
-  <meta name="keywords" content="digital,art,music,sound,education">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celeste Betancur Artist, live coder and multi-instrumentalist musician.">
+    <title>Celeste Betancur - Artist</title>
 
-  <title>Celeste Betancur - Artist</title>
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  <script type="text/javascript" src="pd/pd.js"></script>
+    <link rel="stylesheet" href="style.css">
 
-  <!-- Audio -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/xsound@latest/build/xsound.min.js"></script>
-<script type="text/javascript" src="pd/reverb.js"></script>
-    <script>
-      function on (){
-        Pd.start();
-          var patch
-          $.get('patches/myPatch.pd', function(patchStr) {
-            patch = Pd.loadPatch(patchStr);
-            const cxt = Pd.getAudio().context;
-            reverbjs.extend(cxt);
-            var reverbUrl = "http://reverbjs.org/Library/SaintLawrenceChurchMolenbeekWersbeekBelgium.m4a";
-            var reverbNode = cxt.createReverbFromUrl(reverbUrl, function() {
-                reverbNode.connect(cxt.destination);
-            });
-            const rev = new X.Reverb(cxt, 0);
-            const delay = new X.Delay(cxt, 0);
-            const delay2 = new X.Delay(cxt, 0);
-            var gain = cxt.createGain();
-            patch.o(0).getOutNode().connect(gain);
-            patch.o(0).getOutNode().connect(reverbNode);
-            gain.connect(rev.INPUT);
-            rev.OUTPUT.connect(delay.INPUT);
-            rev.OUTPUT.connect(delay2.INPUT);
-            delay.OUTPUT.connect(cxt.destination);
-            delay2.OUTPUT.connect(cxt.destination);
-            rev.param({
-              type: 0,
-              dry: 0.2,
-              wet: 8,
-              tone: 12000
-            });
-            delay.param({
-              delayTime: 4,
-              dry: 0.4,
-              wet: 1,
-              tone: 1000,
-              feedback: 0.8
-            });
-            delay2.param({
-              delayTime: 2,
-              dry: 0.6,
-              wet: 0.7,
-              tone: 5000,
-              feedback: 0.5
-            });
-            rev.state(true);
-            delay.state(true);
-          })
-        }
-    </script>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-69497448-1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-69497448-1');
-    </script>
-  <!--p5 -->
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
-
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
-  <section class="menu menu3 cid-shmIyVIlpT" once="menu" id="menu3-2">
+    <!-- P5 Canvas Container (Fixed Background) -->
+    <div id="p5-container"></div>
 
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-        <div class="container">
-            <div class="navbar-brand">
-
-                <span class="navbar-caption-wrap"><a id="name" class="navbar-caption text-black text-primary display-7" onclick="on()">Celeste Betancur</a></span>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-                  <li class="nav-item dropdown"><a class="nav-link link text-black text-primary dropdown-toggle display-4" href="#" aria-expanded="false" data-toggle="dropdown-submenu">
-                            Code and Software</a>
-                    <div class="dropdown-menu">
-                      <a class="text-black text-primary dropdown-item display-4" href="code.html#video3-4" aria-expanded="false">
-                        CineVivo App</a>
-                      <a class="text-black text-primary dropdown-item display-4" href="code.html#video3-5" aria-expanded="true">
-                        CQenze</a>
-                        <a class="text-black text-primary dropdown-item display-4" href="code.html#video3-6" aria-expanded="false">
-                          CHmUsiCK</a>
-                    </div>
-                  </li>
-                    <li class="nav-item dropdown"><a class="nav-link link text-black text-primary dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu" aria-expanded="false">Education Projects</a><div class="dropdown-menu"><a class="text-black text-primary dropdown-item display-4" href="education.html#video3-a">Machina</a><a class="text-black text-primary dropdown-item display-4" href="education.html#video3-8" aria-expanded="true">Semillero CV</a><a class="text-black text-primary dropdown-item display-4" href="education.html#video3-9" aria-expanded="true">Festival ART</a><a class="text-black text-primary dropdown-item display-4" href="education.html#video3-b" aria-expanded="true">Talks and workshops</a></div></li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link link text-black text-primary dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu" aria-expanded="false">Art and Music</a>
-                      <div class="dropdown-menu">
-                        <a class="text-black text-primary dropdown-item display-4" href="anm.html">Art, music & videos</a>
-                        <a class="text-black text-primary dropdown-item display-4" href="luthier.html">Making instruments</a>
-                        <a class="text-black text-primary dropdown-item display-4" href="fulllist.html" target="_blank">Full list of Compositions</a>
-                      </div></li>
-                    </li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="assets/images/CV.pdf" target="_blank">CV</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link link text-black text-primary dropdown-toggle display-4" href="#" aria-expanded="false" data-toggle="dropdown-submenu">
-                              Live DEMOS</a>
-                      <div class="dropdown-menu">
-                        <a class="text-black text-primary dropdown-item display-4" href="#" aria-expanded="false">
-                          Work on progress</a>
-                      </div>
-                    </li>
-                  </ul>
-
-            </div>
-        </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="brand">Celeste<span>Betancur</span></a>
+        <ul class="nav-links">
+            <li><a href="#code">Code</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#art">Art & Music</a></li>
+        </ul>
     </nav>
-</section>
 
-<section class="header11 cid-shmFnDfPIR" id="header11-1">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div id="p5" class="col-12 col-md-4 image-wrapper">
-                <img class="w-100" src="assets/images/foto-1076x1076.jpg" alt="Mobirise">
-            </div>
-            <div class="col-12 col-md">
-                <div class="text-wrapper text-center">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1">
-                        <strong>Celeste</strong></h1>
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        Digital artist - Live coder - Educator - Musician
-                    </p>
+    <!-- Parallax Wrapper -->
+    <div class="parallax-wrapper">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <img src="assets/images/foto-1076x1076.jpg" alt="Celeste Betancur" class="hero-image">
+                <h1>Celeste Betancur</h1>
+                <p>Digital Artist • Live Coder • Educator • Musician</p>
+                <div style="margin-top: 2rem;">
+                    <iframe style="border-radius:12px"
+                        src="https://open.spotify.com/embed/album/5Scb1zMFTqI7BHgnRYyOa9?utm_source=generator&theme=0"
+                        width="100%" height="80" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                 </div>
             </div>
-        </div>
-    </div>
-    <footer>
-      <br />
-      <div class="icons-menu display-5 text-center">
-          <a class="iconfont-wrapper" href="https://www.facebook.com/celestebmusic" target="_blank">
-              <span class="p-2 mbr-iconfont socicon-facebook socicon"></span>
-          </a>
-          <a class="iconfont-wrapper" href="https://twitter.com/essteb" target="_blank">
-              <span class="p-2 mbr-iconfont socicon-twitter socicon"></span>
-          </a>
-          <a class="iconfont-wrapper" href="https://www.instagram.com/essteb/" target="_blank">
-              <span class="p-2 mbr-iconfont socicon-instagram socicon"></span>
-          </a>
-      </div>
-    </footer>
-</section>
+        </section>
 
+        <!-- Code Section -->
+        <section id="code">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Code & Software</h2>
+            <div class="grid-container">
+                <article class="card">
+                    <h3>CineVivo App</h3>
+                    <p>Interactive visual tool for live performance.</p>
+                    <br>
+                    <a href="code.html#video3-4">View Project &rarr;</a>
+                </article>
+                <article class="card">
+                    <h3>CQenze</h3>
+                    <p>Sequencing environment for live coding.</p>
+                    <br>
+                    <a href="code.html#video3-5">View Project &rarr;</a>
+                </article>
+                <article class="card">
+                    <h3>CHmUsiCK</h3>
+                    <p>Musical programming interface.</p>
+                    <br>
+                    <a href="code.html#video3-6">View Project &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" style="background: rgba(0,0,0,0.3);">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Education Projects</h2>
+            <div class="grid-container">
+                <article class="card">
+                    <h3>Machina</h3>
+                    <a href="education.html#video3-a">Learn more</a>
+                </article>
+                <article class="card">
+                    <h3>Semillero CV</h3>
+                    <a href="education.html#video3-8">Learn more</a>
+                </article>
+                <article class="card">
+                    <h3>Festival ART</h3>
+                    <a href="education.html#video3-9">Learn more</a>
+                </article>
+                <article class="card">
+                    <h3>Talks & Workshops</h3>
+                    <a href="education.html#video3-b">Learn more</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Art Section -->
+        <section id="art">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Art & Music</h2>
+            <div class="grid-container">
+                <article class="card">
+                    <h3>Art, Music & Videos</h3>
+                    <a href="anm.html">Watch & Listen &rarr;</a>
+                </article>
+                <article class="card">
+                    <h3>Instrument Making</h3>
+                    <a href="luthier.html">Luthier Work &rarr;</a>
+                </article>
+                <article class="card">
+                    <h3>Compositions</h3>
+                    <a href="fulllist.html" target="_blank">Full List &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/celestebmusic" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/essteb" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/essteb/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p style="margin-top: 1rem; color: #888;">&copy; 2025 Celeste Betancur</p>
+        </footer>
+
+    </div>
+
+    <!-- jQuery (needed for other plugins if any, but removing audio dependency) -->
     <script src="assets/web/assets/jquery/jquery.min.js"></script>
-    <script src="assets/popper/popper.min.js"></script>
-    <script src="assets/tether/tether.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="assets/dropdown/js/nav-dropdown.js"></script>
-    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
-    <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-    <script src="assets/theme/js/script.js"></script>
+    <!-- p5.js -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
     <script src="p5/index.js"></script>
-  </body>
+
+</body>
+
 </html>
