@@ -16,8 +16,13 @@
 
 <body>
 
-    <!-- P5 Canvas Container (Fixed Background) -->
-    <div id="p5-container"></div>
+    <!-- Three.js Canvas Container (Fixed Background) -->
+    <div id="three-container"></div>
+
+    <!-- Photo overlay: sits between Three.js and page text -->
+    <div id="photo-overlay">
+        <img src="foto-1076x1076.jpg" alt="">
+    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -27,8 +32,13 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#art">Art & Music</a></li>
             <li><a href="luthier.html">Luthier</a></li>
-            <li><a href="activism.html">Activism</a></li>
-            <li><a href="interviews.html">Interviews</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Other Media <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="activism.html">Activism</a>
+                    <a href="interviews.html">Interviews</a>
+                </div>
+            </li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">Demos <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown-content">
@@ -139,17 +149,18 @@
                 <a href="https://www.facebook.com/celestebmusic" target="_blank"><i class="fab fa-facebook"></i></a>
                 <a href="https://twitter.com/essteb" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.instagram.com/essteb/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@essteb" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
             <p style="margin-top: 1rem; color: #888;">&copy; 2025 Celeste Betancur</p>
         </footer>
 
     </div>
 
-    <!-- jQuery (needed for other plugins if any, but removing audio dependency) -->
+    <!-- jQuery -->
     <script src="assets/web/assets/jquery/jquery.min.js"></script>
-    <!-- p5.js -->
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
-    <script src="p5/index.js"></script>
+    <!-- Three.js r128 (local) -->
+    <script src="threejs/three.min.js"></script>
+    <script src="threejs/background.js"></script>
 
 </body>
 

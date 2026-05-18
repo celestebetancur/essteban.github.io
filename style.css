@@ -26,8 +26,8 @@ body {
     height: 100vh;
 }
 
-/* P5 Canvas Background - FIXED */
-#p5-container {
+/* Three.js Canvas Background - FIXED */
+#three-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -40,8 +40,46 @@ body {
 }
 
 /* Ensure canvas inside is also full */
-#p5-container canvas {
+#three-container canvas {
     display: block;
+}
+
+/* Glow pass — blurred copy of the scene rendered behind the sharp canvas.
+   blur() spreads light outward; brightness() amplifies it to look like HDR bloom. */
+#glow-canvas {
+    filter: blur(10px) brightness(3.5);
+    opacity: 0.75;
+}
+
+/* ── Photo overlay ─────────────────────────────────────────────────────────
+   Sits between the Three.js canvas (z: -10) and page content (z: 1).
+   mix-blend-mode: screen lets particle colours shine through the portrait.
+   The radial mask fades the edges so it bleeds into the black background.
+────────────────────────────────────────────────────────────────────────── */
+#photo-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+#photo-overlay img {
+    /* Fill most of the shorter viewport dimension */
+    width: min(70vw, 70vh);
+    height: min(70vw, 70vh);
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 0.28;
+    /* Radial gradient mask: solid at centre, transparent at rim */
+    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%,
+        #000 45%, transparent 85%);
+    mask-image: radial-gradient(ellipse 60% 60% at 50% 50%,
+        #000 45%, transparent 85%);
+    filter: brightness(1.2) saturate(0.3) blur(0.5px);
+    user-select: none;
 }
 
 

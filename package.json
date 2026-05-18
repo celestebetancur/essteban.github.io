@@ -1,3 +1,5 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "three": "^0.165.0"
+  }
 }
