@@ -321,7 +321,7 @@
     glowRenderer = new THREE.WebGLRenderer({ antialias: false, alpha: false });
     glowRenderer.setPixelRatio(1);  // always 1× — it will be blurred anyway
     glowRenderer.setSize(Math.floor(window.innerWidth / 2), Math.floor(window.innerHeight / 2));
-    glowRenderer.setClearColor(0x000000, 1);
+    glowRenderer.setClearColor(0xf5f0e8, 1);  // cream bg — matches CSS --bg-color
     const glowCanvas = glowRenderer.domElement;
     glowCanvas.id = 'glow-canvas';
     glowCanvas.style.position = 'absolute';

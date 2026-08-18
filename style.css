@@ -1,10 +1,13 @@
 :root {
-    --bg-color: #0c0c16;
-    --text-color: #ffffff;
-    --primary-color: #00ffff;
-    --secondary-color: #b700ff;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-color: #f5f0e8;
+    --bg-alt: #ede8df;
+    --text-color: #1a1a2e;
+    --text-muted: #4a4a6a;
+    --primary-color: #007a7a;
+    --primary-glow: #00c8c8;
+    --secondary-color: #8a00cc;
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(0, 0, 0, 0.1);
     --font-main: 'Inter', sans-serif;
     --nav-height: 80px;
 }
@@ -106,7 +109,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    background: rgba(12, 12, 22, 0.85);
+    background: rgba(245, 240, 232, 0.88);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--glass-border);
@@ -157,7 +160,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background: rgba(12, 12, 22, 0.95);
+    background: rgba(245, 240, 232, 0.97);
     min-width: 220px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     z-index: 1001;
@@ -180,11 +183,20 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.06);
     color: var(--primary-color);
 }
 
-.dropdown:hover .dropdown-content {
+/* Desktop-only hover dropdown */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content,
+    .dropdown.dropdown-open .dropdown-content {
+        display: block;
+    }
+}
+
+/* JS-toggled dropdown (works on all screen sizes) */
+.dropdown.dropdown-open .dropdown-content {
     display: block;
 }
 
@@ -214,7 +226,7 @@ section {
     border-radius: 20px;
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(5px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
     max-width: 800px;
     /* Parallax simulated speed if wanted, or just static over fixed BG */
 }
@@ -239,7 +251,7 @@ section {
     object-fit: cover;
     margin-bottom: 2rem;
     border: 3px solid var(--primary-color);
-    box-shadow: 0 0 20px var(--primary-color);
+    box-shadow: 0 0 20px var(--primary-glow);
 }
 
 /* Content Cards */
@@ -253,8 +265,8 @@ section {
 }
 
 .card {
-    background: rgba(20, 20, 30, 0.6);
-    /* Slightly more opaque for readability over moving BG */
+    background: rgba(255, 255, 255, 0.6);
+    /* Slightly more opaque for readability over light BG */
     border: 1px solid var(--glass-border);
     border-radius: 15px;
     padding: 2rem;
@@ -264,7 +276,7 @@ section {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 122, 122, 0.15);
     border-color: var(--primary-color);
 }
 
@@ -298,7 +310,7 @@ section {
 footer {
     padding: 2rem;
     text-align: center;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(237, 232, 223, 0.95);
     margin-top: auto;
     width: 100%;
 }
@@ -315,14 +327,167 @@ footer {
     color: var(--secondary-color);
 }
 
-/* Responsive */
+/* ── Hamburger Button ───────────────────────────────────────────────────── */
+#menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-color);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+}
+
+/* Animate to X when active */
+#menu-toggle.is-active .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+#menu-toggle.is-active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+#menu-toggle.is-active .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 3rem;
+    /* Navbar: allow wrap so open menu expands height */
+    .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: var(--nav-height);
+        padding: 0 5%;
+        align-items: center;
     }
 
+    /* Show hamburger */
+    #menu-toggle {
+        display: flex;
+    }
+
+    /* Brand stays inline with hamburger */
+    .brand {
+        font-size: 1.15rem;
+        flex: 1;
+    }
+
+    /* Mobile nav panel: hidden by default, slide down when open */
     .nav-links {
         display: none;
-        /* simple mobile hide for now */
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding: 0.5rem 0 1rem;
+        border-top: 1px solid var(--glass-border);
+        margin-top: 0.25rem;
+        /* Slide animation */
+        animation: none;
     }
+
+    .nav-links.nav-open {
+        display: flex;
+        animation: slideDown 0.25s ease;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Nav items: full-width, left-aligned */
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a,
+    .nav-links .dropbtn {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 0.5rem;
+        text-align: left;
+        border-radius: 6px;
+    }
+
+    .nav-links a:hover,
+    .nav-links .dropbtn:hover {
+        background: rgba(0, 0, 0, 0.04);
+    }
+
+    /* Mobile dropdowns: stack inline, not absolute */
+    .dropdown-content {
+        position: static;
+        background: rgba(0, 0, 0, 0.03);
+        box-shadow: none;
+        border: none;
+        border-left: 2px solid var(--glass-border);
+        border-radius: 0;
+        padding: 0;
+        min-width: unset;
+        margin-left: 0.75rem;
+    }
+
+    .dropdown-content a {
+        text-align: left;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .hero-content {
+        padding: 2rem 1.25rem;
+    }
+}
+
+/* dropbtn: reset <button> defaults consistently on all sizes */
+.dropbtn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-weight: 400;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+}
+
+.dropbtn:hover {
+    color: var(--primary-color);
 }

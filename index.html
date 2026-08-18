@@ -25,27 +25,39 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="main-nav">
         <a href="#" class="brand">Celeste<span>Betancur</span></a>
-        <ul class="nav-links">
+
+        <!-- Hamburger button (mobile only) -->
+        <button id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links-list">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links-list" role="list">
             <li><a href="#code">Code</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="#art">Art & Music</a></li>
+            <li><a href="#art">Art &amp; Music</a></li>
             <li><a href="luthier.html">Luthier</a></li>
             <li class="dropdown">
-                <a href="#" class="dropbtn">Other Media <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="activism.html">Activism</a>
-                    <a href="interviews.html">Interviews</a>
+                <button class="dropbtn" aria-expanded="false" aria-haspopup="true">
+                    Other Media <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-content" role="menu">
+                    <a href="activism.html" role="menuitem">Activism</a>
+                    <a href="interviews.html" role="menuitem">Interviews</a>
                 </div>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropbtn">Demos <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
+                <button class="dropbtn" aria-expanded="false" aria-haspopup="true">
+                    Demos <i class="fas fa-caret-down" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-content" role="menu">
                     <a href="https://ccrma.stanford.edu/~celeste/AetherMapper/AetherMapper/"
-                        target="_blank">AetherMapper</a>
-                    <a href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html" target="_blank">CQenze</a>
-                    <a href="https://algorithmic-scape.art/" target="_blank">Algorithmic Scape</a>
+                        target="_blank" role="menuitem">AetherMapper</a>
+                    <a href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html" target="_blank" role="menuitem">CQenze</a>
+                    <a href="https://algorithmic-scape.art/" target="_blank" role="menuitem">Algorithmic Scape</a>
                 </div>
             </li>
         </ul>
@@ -90,6 +102,12 @@
                     <p>Musical programming interface.</p>
                     <br>
                     <a href="code.html#video3-6">View Project &rarr;</a>
+                </article>
+                <article class="card">
+                    <h3>Chrysalis</h3>
+                    <p>ChucK programming language module for VCV Rack.</p>
+                    <br>
+                    <a href="code.html#chrysalis">View Project &rarr;</a>
                 </article>
             </div>
         </section>
@@ -161,6 +179,56 @@
     <!-- Three.js r128 (local) -->
     <script src="threejs/three.min.js"></script>
     <script src="threejs/background.js"></script>
+
+    <!-- Mobile navigation toggle -->
+    <script>
+      (function () {
+        const toggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-links-list');
+        const dropbtns = document.querySelectorAll('.dropbtn');
+
+        // Hamburger open/close
+        toggle.addEventListener('click', function () {
+          const isOpen = navList.classList.toggle('nav-open');
+          toggle.setAttribute('aria-expanded', isOpen);
+          toggle.classList.toggle('is-active', isOpen);
+        });
+
+        // Close menu when a regular nav link is clicked (mobile)
+        navList.querySelectorAll('a:not(.dropdown-content a)').forEach(function (link) {
+          link.addEventListener('click', function () {
+            navList.classList.remove('nav-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.classList.remove('is-active');
+          });
+        });
+
+        // Dropdown toggle (click/touch-compatible)
+        dropbtns.forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const parent = btn.closest('.dropdown');
+            const isOpen = parent.classList.toggle('dropdown-open');
+            btn.setAttribute('aria-expanded', isOpen);
+            // Close other dropdowns
+            dropbtns.forEach(function (other) {
+              if (other !== btn) {
+                other.closest('.dropdown').classList.remove('dropdown-open');
+                other.setAttribute('aria-expanded', 'false');
+              }
+            });
+          });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function () {
+          dropbtns.forEach(function (btn) {
+            btn.closest('.dropdown').classList.remove('dropdown-open');
+            btn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      })();
+    </script>
 
 </body>
 
