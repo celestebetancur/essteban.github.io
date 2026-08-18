@@ -204,17 +204,17 @@
 
     clearParticles();
 
-    // Blue-teal palette  (mirrors p5: C = random(55, 75) on scale 0-100)
-    // → [0.55, 0.75] on [0,1]
-    const baseHue = 0.55 + Math.random() * 0.20;
+    // Teal-to-purple palette  — matches CSS --primary-color (#007a7a ≈ 0.50)
+    // through --secondary-color (#8a00cc ≈ 0.78), spanning [0.48, 0.80].
+    const baseHue = 0.48 + Math.random() * 0.32;
 
     for (let i = 0; i < NUM; i++) {
       const ix = (Math.random() * 2 - 1) * sx * s;
       const iy = (Math.random() * 2 - 1) * sy * s;
       const iz = (Math.random() * 2 - 1) * sz * s;
 
-      // Gaussian spread around baseHue (mirrors randomGaussian(C, 5) / 100)
-      const hue = ((baseHue + gaussRand() * 0.05) % 1 + 1) % 1;
+      // Gaussian spread around baseHue — wider (±0.08) to mix teal ↔ purple
+      const hue = ((baseHue + gaussRand() * 0.08) % 1 + 1) % 1;
       particles.push(makeParticle([ix, iy, iz], hue, A));
     }
 
