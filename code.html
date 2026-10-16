@@ -1,156 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code and Software - Celeste Betancur</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code — Celeste Betancur</title>
+<meta name="description" content="Chrysalis, CQenze, CHmUsiCK and CineVivo: live coding software by Celeste Betancur.">
+<meta property="og:title" content="Code — Celeste Betancur">
+<meta property="og:description" content="Chrysalis, CQenze, CHmUsiCK and CineVivo: live coding software by Celeste Betancur.">
+<meta property="og:image" content="https://www.celestebetancur.com/img/portrait.jpg">
+<meta name="theme-color" content="#f3f0e8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="site.css">
 </head>
-
 <body>
-
-    <!-- P5 Canvas Container (Fixed Background) -->
-    <div id="p5-container"></div>
-
-    <!-- Unified Navigation -->
-    <nav class="navbar">
-        <a href="index.html" class="brand" onclick="on()">Celeste<span>Betancur</span></a>
-        <ul class="nav-links">
-            <li><a href="code.html" style="color: var(--primary-color);">Code</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="anm.html">Art & Music</a></li>
-            <li><a href="luthier.html">Luthier</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Other Media <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="activism.html">Activism</a>
-                    <a href="interviews.html">Interviews</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Demos <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown-content">
-                    <a href="https://ccrma.stanford.edu/~celeste/AetherMapper/AetherMapper/"
-                        target="_blank">AetherMapper</a>
-                    <a href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html" target="_blank">CQenze</a>
-                    <a href="https://algorithmic-scape.art/" target="_blank">Algorithmic Scape</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Parallax Wrapper -->
-    <div class="parallax-wrapper">
-
-        <section style="padding-top: 150px;">
-            <h1 style="font-size: 4rem; margin-bottom: 3rem;">Code & Software</h1>
-
-            <!-- CineVivo App -->
-            <article class="card" id="video3-4" style="max-width: 1000px; width: 90%; margin-bottom: 3rem;">
-                <h3>CineVivo App</h3>
-                <p>CineVivo is a concept-tool for live visual performance where code-text can become a second layer of
-                    communication and visual information.</p>
-                <br>
-                <ul>
-                    <li><a href="https://github.com/essteban/CineVivo.git" target="_blank">View Source Code <i
-                                class="fab fa-github"></i></a></li>
-                </ul>
-                <div class="grid-container" style="margin-top: 2rem;">
-                    <div class="video-wrapper">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/9xkvvo16Hvg"
-                            frameborder="0" allowfullscreen></iframe>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">Workshop on CineVivo/Orbits</p>
-                    </div>
-                    <div class="video-wrapper">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/_yiD31xkyEg"
-                            frameborder="0" allowfullscreen></iframe>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">NIME '18 performance by Jack
-                            Armitage & Celeste Betancur</p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- CQenze -->
-            <article class="card" id="video3-5" style="max-width: 1000px; width: 90%; margin-bottom: 3rem;">
-                <h3>CQenze</h3>
-                <p>CQenze is a minilanguage designed to make musical (or color) patterns that uses an implicit cyclic
-                    timing.</p>
-                <br>
-                <ul>
-                    <li><a href="https://github.com/essteban/CQenze" target="_blank">View Source Code <i
-                                class="fab fa-github"></i></a></li>
-                    <li><a href="http://festivaldelaimagen.com/wp-content/uploads/2017/07/Esteban_Betancur.pdf"
-                            target="_blank">Design Discussion</a></li>
-                </ul>
-                <div class="grid-container" style="margin-top: 2rem;">
-                    <div class="video-wrapper">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/ED7pLW2GA5g"
-                            frameborder="0" allowfullscreen></iframe>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">9 years old coder livecoding
-                            using CQenze</p>
-                    </div>
-                    <div class="video-wrapper">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/BUphefPNlVA"
-                            frameborder="0" allowfullscreen></iframe>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">Live coding session using CQenze
-                            and OpenFrameworks</p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- CHmUsiCK -->
-            <article class="card" id="video3-6" style="max-width: 1000px; width: 90%; margin-bottom: 3rem;">
-                <h3>CHmUsiCK</h3>
-                <p>Chmusick (Chuck + music) is a library to make chuck language an Algorave language.</p>
-                <br>
-                <ul>
-                    <li><a href="https://github.com/essteban/CHmUsiCK" target="_blank">View Source Code <i
-                                class="fab fa-github"></i></a></li>
-                </ul>
-                <div class="grid-container" style="margin-top: 2rem;">
-                    <div class="video-wrapper">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/776ASlahgLk"
-                            frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-wrapper">
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/afttcjZFeug"
-                            frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </article>
-
-
-            <!-- Chrysalis -->
-            <article class="card" id="chrysalis" style="max-width: 1000px; width: 90%; margin-bottom: 3rem;">
-                <h3>Chrysalis</h3>
-                <p>Chrysalis is a VCV Rack plugin that embeds the ChucK programming language as a module, bringing real-time, strongly-timed audio programming directly into your modular synthesis environment.</p>
-                <br>
-                <ul>
-                    <li><a href="https://library.vcvrack.com/Chrysalis" target="_blank">VCV Library <i class="fas fa-external-link-alt"></i></a></li>
-                    <li><a href="https://github.com/celestebetancur/Chrysalis" target="_blank">View Source Code <i class="fab fa-github"></i></a></li>
-                </ul>
-            </article>
-
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/celestebmusic" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://twitter.com/essteb" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/essteb/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@essteb" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p style="margin-top: 1rem; color: #888;">&copy; 2024 Celeste Betancur</p>
-        </footer>
-    </div>
-
+<canvas id="attractor" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="name" href="index.html">Celeste Betancur</a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="music.html">Music</a></li><li><a href="works.html">Works</a></li><li><a href="code.html" aria-current="page">Code</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="instruments.html">Instruments</a></li><li><a href="press.html">Press</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+<div class="wrap"><header class="page-head"><h1>Code</h1><p class="lede">Software for performing music and image live: languages, libraries and modules.</p><p class="jump"><a href="#chrysalis">Chrysalis</a><a href="#cqenze">CQenze</a><a href="#chmusick">CHmUsiCK</a><a href="#cinevivo">CineVivo</a><a href="#demos">Demos</a></p></header></div><section class="section"><div class="wrap"><article class="project" id="chrysalis"><header><h2>Chrysalis</h2><span class="label">VCV Rack · ChucK</span></header><div class="body"><p>A VCV Rack plugin that embeds the ChucK language as a module, bringing strongly-timed audio programming into a modular synthesis patch.</p><p class="links"><a href="https://library.vcvrack.com/Chrysalis">VCV Library ↗</a><a href="https://github.com/celestebetancur/Chrysalis">Source ↗</a></p></div></article><article class="project" id="cqenze"><span id="video3-5"></span><header><h2>CQenze</h2><span class="label">Mini-language</span></header><div class="body"><p>A mini-language for musical (or colour) patterns with implicit cyclic timing.</p><p class="links"><a href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html">Try it ↗</a><a href="https://github.com/essteban/CQenze">Source ↗</a><a href="http://festivaldelaimagen.com/wp-content/uploads/2017/07/Esteban_Betancur.pdf">Design discussion (PDF) ↗</a></p><div class="media"><figure><a class="yt" href="https://www.youtube.com/watch?v=ED7pLW2GA5g" data-id="ED7pLW2GA5g" aria-label="Play A nine-year-old live coding with CQenze"><img src="https://i.ytimg.com/vi/ED7pLW2GA5g/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></a><figcaption>A nine-year-old live coding with CQenze</figcaption></figure><figure><a class="yt" href="https://www.youtube.com/watch?v=BUphefPNlVA" data-id="BUphefPNlVA" aria-label="Play Live coding with CQenze and openFrameworks"><img src="https://i.ytimg.com/vi/BUphefPNlVA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></a><figcaption>Live coding with CQenze and openFrameworks</figcaption></figure></div></div></article><article class="project" id="chmusick"><span id="video3-6"></span><header><h2>CHmUsiCK</h2><span class="label">ChucK library</span></header><div class="body"><p>ChucK + music: a library that turns ChucK into an algorave language.</p><p class="links"><a href="https://github.com/essteban/CHmUsiCK">Source ↗</a></p><div class="media"><figure><a class="yt" href="https://www.youtube.com/watch?v=776ASlahgLk" data-id="776ASlahgLk" aria-label="Play CHmUsiCK at ICMC 2018"><img src="https://i.ytimg.com/vi/776ASlahgLk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></a><figcaption>CHmUsiCK at ICMC 2018</figcaption></figure><figure><a class="yt" href="https://www.youtube.com/watch?v=afttcjZFeug" data-id="afttcjZFeug" aria-label="Play CHmUsiCK performance"><img src="https://i.ytimg.com/vi/afttcjZFeug/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></a><figcaption>CHmUsiCK performance</figcaption></figure></div></div></article><article class="project" id="cinevivo"><span id="video3-4"></span><header><h2>CineVivo</h2><span class="label">openFrameworks</span></header><div class="body"><p>A concept-tool for live visual performance where code text becomes a second layer of communication and image.</p><p class="links"><a href="https://github.com/essteban/CineVivo">Source ↗</a></p><div class="media"><figure><a class="yt" href="https://www.youtube.com/watch?v=9xkvvo16Hvg" data-id="9xkvvo16Hvg" aria-label="Play Workshop on CineVivo / Orbits"><img src="https://i.ytimg.com/vi/9xkvvo16Hvg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></a><figcaption>Workshop on CineVivo / Orbits</figcaption></figure><figure><a class="yt" href="https://www.youtube.com/watch?v=_yiD31xkyEg" data-id="_yiD31xkyEg" aria-label="Play NIME ’18 performance, Jack Armitage &amp; Celeste Betancur"><img src="https://i.ytimg.com/vi/_yiD31xkyEg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"></a><figcaption>NIME ’18 performance, Jack Armitage &amp; Celeste Betancur</figcaption></figure></div></div></article></div></section><section class="section" id="demos"><div class="wrap"><div class="section-head"><span class="label">Try it</span><h2>Demos in the browser</h2></div><ol class="rows"><li><span class="label">Demo</span><div><h3><a href="https://ccrma.stanford.edu/~celeste/AetherMapper/AetherMapper/">AetherMapper</a></h3><p>Opens in the browser.</p></div><a class="go" href="https://ccrma.stanford.edu/~celeste/AetherMapper/AetherMapper/" aria-hidden="true" tabindex="-1">Open ↗</a></li><li><span class="label">Demo</span><div><h3><a href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html">CQenze</a></h3><p>Write patterns and hear them, no install.</p></div><a class="go" href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html" aria-hidden="true" tabindex="-1">Open ↗</a></li><li><span class="label">Demo</span><div><h3><a href="https://algorithmic-scape.art/">Algorithmic Scape</a></h3><p>Opens in the browser.</p></div><a class="go" href="https://algorithmic-scape.art/" aria-hidden="true" tabindex="-1">Open ↗</a></li></ol></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <ul>
+      <li><a href="https://www.instagram.com/essteb/">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@essteb">YouTube</a></li>
+      <li><a href="https://celestebetancur.bandcamp.com/">Bandcamp</a></li>
+      <li><a href="https://github.com/celestebetancur">GitHub</a></li>
+      <li><a href="https://www.facebook.com/celestebmusic">Facebook</a></li>
+      <li><a href="https://twitter.com/essteb">X / Twitter</a></li>
+    </ul>
+    <p class="meta">© 2026 Celeste Betancur</p>
+  </div>
+</footer>
+<script src="site.js" defer></script>
+<script src="threejs/three.min.js" defer></script>
+<script src="attractor.js" defer></script>
 </body>
-
 </html>

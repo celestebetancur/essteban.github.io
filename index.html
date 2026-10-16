@@ -1,235 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Celeste Betancur Artist, live coder and multi-instrumentalist musician.">
-    <title>Celeste Betancur - Artist</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome (for icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Celeste Betancur</title>
+<meta name="description" content="Celeste Betancur: composer, live coder, instrument builder and educator based at CCRMA, Stanford.">
+<meta property="og:title" content="Celeste Betancur">
+<meta property="og:description" content="Celeste Betancur: composer, live coder, instrument builder and educator based at CCRMA, Stanford.">
+<meta property="og:image" content="https://www.celestebetancur.com/img/portrait.jpg">
+<meta name="theme-color" content="#f3f0e8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="site.css">
 </head>
-
-<body>
-
-    <!-- Three.js Canvas Container (Fixed Background) -->
-    <div id="three-container"></div>
-
-    <!-- Photo overlay: sits between Three.js and page text -->
-    <div id="photo-overlay">
-        <img src="foto-1076x1076.jpg" alt="">
+<body class="home">
+<canvas id="attractor" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="name" href="index.html">Celeste Betancur</a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="music.html">Music</a></li><li><a href="works.html">Works</a></li><li><a href="code.html">Code</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="instruments.html">Instruments</a></li><li><a href="press.html">Press</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero" aria-label="Introduction">
+  <div class="wrap">
+    <div>
+      <h1>Celeste Betancur</h1>
+      <p class="roles">composer · live coder · instrument builder · educator</p>
+      <p class="bio">Colombian artist working between notated music, code and hand-built instruments. Based at CCRMA, Stanford University.</p>
+      <button class="next-shape" id="next-shape" type="button">next attractor ↻</button>
     </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="main-nav">
-        <a href="#" class="brand">Celeste<span>Betancur</span></a>
-
-        <!-- Hamburger button (mobile only) -->
-        <button id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links-list">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-        </button>
-
-        <ul class="nav-links" id="nav-links-list" role="list">
-            <li><a href="#code">Code</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#art">Art &amp; Music</a></li>
-            <li><a href="luthier.html">Luthier</a></li>
-            <li class="dropdown">
-                <button class="dropbtn" aria-expanded="false" aria-haspopup="true">
-                    Other Media <i class="fas fa-caret-down" aria-hidden="true"></i>
-                </button>
-                <div class="dropdown-content" role="menu">
-                    <a href="activism.html" role="menuitem">Activism</a>
-                    <a href="interviews.html" role="menuitem">Interviews</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <button class="dropbtn" aria-expanded="false" aria-haspopup="true">
-                    Demos <i class="fas fa-caret-down" aria-hidden="true"></i>
-                </button>
-                <div class="dropdown-content" role="menu">
-                    <a href="https://ccrma.stanford.edu/~celeste/AetherMapper/AetherMapper/"
-                        target="_blank" role="menuitem">AetherMapper</a>
-                    <a href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html" target="_blank" role="menuitem">CQenze</a>
-                    <a href="https://algorithmic-scape.art/" target="_blank" role="menuitem">Algorithmic Scape</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Parallax Wrapper -->
-    <div class="parallax-wrapper">
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <img src="assets/images/foto-1076x1076.jpg" alt="Celeste Betancur" class="hero-image">
-                <h1>Celeste Betancur</h1>
-                <p>Digital Artist • Live Coder • Educator • Musician</p>
-                <div style="margin-top: 2rem;">
-                    <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/album/5Scb1zMFTqI7BHgnRYyOa9?utm_source=generator&theme=0"
-                        width="100%" height="80" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- Code Section -->
-        <section id="code">
-            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Code & Software</h2>
-            <div class="grid-container">
-                <article class="card">
-                    <h3>CineVivo App</h3>
-                    <p>Interactive visual tool for live performance.</p>
-                    <br>
-                    <a href="code.html#video3-4">View Project &rarr;</a>
-                </article>
-                <article class="card">
-                    <h3>CQenze</h3>
-                    <p>Sequencing environment for live coding.</p>
-                    <br>
-                    <a href="code.html#video3-5">View Project &rarr;</a>
-                </article>
-                <article class="card">
-                    <h3>CHmUsiCK</h3>
-                    <p>Musical programming interface.</p>
-                    <br>
-                    <a href="code.html#video3-6">View Project &rarr;</a>
-                </article>
-                <article class="card">
-                    <h3>Chrysalis</h3>
-                    <p>ChucK programming language module for VCV Rack.</p>
-                    <br>
-                    <a href="code.html#chrysalis">View Project &rarr;</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" style="background: rgba(0,0,0,0.3);">
-            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Education Projects</h2>
-            <div class="grid-container">
-                <article class="card">
-                    <h3>Machina</h3>
-                    <a href="education.html#video3-a">Learn more</a>
-                </article>
-                <article class="card">
-                    <h3>Semillero CV</h3>
-                    <a href="education.html#video3-8">Learn more</a>
-                </article>
-                <article class="card">
-                    <h3>Festival ART</h3>
-                    <a href="education.html#video3-9">Learn more</a>
-                </article>
-                <article class="card">
-                    <h3>Talks & Workshops</h3>
-                    <a href="education.html#video3-b">Learn more</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Art Section -->
-        <section id="art">
-            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Art & Music</h2>
-            <div class="grid-container">
-                <article class="card">
-                    <h3>Art, Music & Videos</h3>
-                    <a href="anm.html">Watch & Listen &rarr;</a>
-                </article>
-                <article class="card">
-                    <h3>Compositions</h3>
-                    <a href="fulllist.html" target="_blank">Full List &rarr;</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Luthier Section -->
-        <section id="luthier">
-            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Luthier</h2>
-            <div class="grid-container">
-                <article class="card">
-                    <h3>Instrument Making</h3>
-                    <a href="luthier.html">Luthier Work &rarr;</a>
-                </article>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/celestebmusic" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://twitter.com/essteb" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/essteb/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@essteb" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p style="margin-top: 1rem; color: #888;">&copy; 2025 Celeste Betancur</p>
-        </footer>
-
-    </div>
-
-    <!-- jQuery -->
-    <script src="assets/web/assets/jquery/jquery.min.js"></script>
-    <!-- Three.js r128 (local) -->
-    <script src="threejs/three.min.js"></script>
-    <script src="threejs/background.js"></script>
-
-    <!-- Mobile navigation toggle -->
-    <script>
-      (function () {
-        const toggle = document.getElementById('menu-toggle');
-        const navList = document.getElementById('nav-links-list');
-        const dropbtns = document.querySelectorAll('.dropbtn');
-
-        // Hamburger open/close
-        toggle.addEventListener('click', function () {
-          const isOpen = navList.classList.toggle('nav-open');
-          toggle.setAttribute('aria-expanded', isOpen);
-          toggle.classList.toggle('is-active', isOpen);
-        });
-
-        // Close menu when a regular nav link is clicked (mobile)
-        navList.querySelectorAll('a:not(.dropdown-content a)').forEach(function (link) {
-          link.addEventListener('click', function () {
-            navList.classList.remove('nav-open');
-            toggle.setAttribute('aria-expanded', 'false');
-            toggle.classList.remove('is-active');
-          });
-        });
-
-        // Dropdown toggle (click/touch-compatible)
-        dropbtns.forEach(function (btn) {
-          btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const parent = btn.closest('.dropdown');
-            const isOpen = parent.classList.toggle('dropdown-open');
-            btn.setAttribute('aria-expanded', isOpen);
-            // Close other dropdowns
-            dropbtns.forEach(function (other) {
-              if (other !== btn) {
-                other.closest('.dropdown').classList.remove('dropdown-open');
-                other.setAttribute('aria-expanded', 'false');
-              }
-            });
-          });
-        });
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function () {
-          dropbtns.forEach(function (btn) {
-            btn.closest('.dropdown').classList.remove('dropdown-open');
-            btn.setAttribute('aria-expanded', 'false');
-          });
-        });
-      })();
-    </script>
-
+    <figure>
+      <img class="portrait" src="img/portrait.jpg" alt="Celeste Betancur in a workshop, wearing safety glasses and a respirator" width="900" height="900">
+      <figcaption class="meta portrait-caption">Background: Lorenz, Chen, Chua and Rössler attractors. Drag empty space to rotate.</figcaption>
+    </figure>
+  </div>
+</section><section class="section" id="recent"><div class="wrap"><div class="section-head"><span class="label">Recent</span><h2>Performances</h2></div><ol class="log"><li><span class="d">Oct 9 2026</span><span class="t">Low Frequency Trio</span><span class="w">CCRMA, Stanford CA</span><span class="p">Verso V</span></li><li><span class="d">Oct 3 2026</span><span class="t">Transitions: Primrose Ohling and Celeste</span><span class="w">CCRMA, Stanford CA</span><span class="p">From Within You</span></li><li><span class="d">Sep 29 2026</span><span class="t">Morton Feldman Centenary: Blackbox Ensemble</span><span class="w">CCRMA, Stanford CA</span><span class="p">Stranded</span></li><li><span class="d">Jun 13 2026</span><span class="t">Inorganic Organ Transmutations</span><span class="w">Fountain Street Church, Grand Rapids MI</span><span class="p">Aeon Sophia I</span></li><li><span class="d">Jan 2026</span><span class="t">The Return of the Amps</span><span class="w">Bing Studio, Stanford CA</span><span class="p">Verso III</span></li></ol><p style="margin-top:1rem"><a href="music.html#performances">All performances since 2019 →</a></p></div></section><section class="section" id="areas"><div class="wrap"><div class="section-head"><span class="label">Index</span><h2>The work</h2></div><ol class="rows"><li><span class="label">01</span><div><h3><a href="music.html">Music</a></h3><p>Albums, concert works for ensembles, algorave sets and live-coded audiovisual performance.</p></div><a class="go" href="music.html" aria-hidden="true" tabindex="-1">Releases, videos, 60+ concerts →</a></li><li><span class="label">02</span><div><h3><a href="works.html">Works</a></h3><p>Catalogue of compositions: concert pieces, recorded works, live cinema and collaborations.</p></div><a class="go" href="works.html" aria-hidden="true" tabindex="-1">Full list →</a></li><li><span class="label">03</span><div><h3><a href="code.html">Code</a></h3><p>Software instruments: Chrysalis, CQenze, CHmUsiCK and CineVivo, plus demos you can open in a browser.</p></div><a class="go" href="code.html" aria-hidden="true" tabindex="-1">4 projects, 3 demos →</a></li><li><span class="label">04</span><div><h3><a href="teaching.html">Teaching</a></h3><p>Workshops and talks on live coding, AI and sound; Semillero CineVivo; Festival ART in Medellín.</p></div><a class="go" href="teaching.html" aria-hidden="true" tabindex="-1">Talks, workshops →</a></li><li><span class="label">05</span><div><h3><a href="instruments.html">Instruments</a></h3><p>Hand-built instruments, from a 24-fret guitar to Umbilical, presented at NIME 2026.</p></div><a class="go" href="instruments.html" aria-hidden="true" tabindex="-1">5 instruments, 2 papers →</a></li><li><span class="label">06</span><div><h3><a href="press.html">Press</a></h3><p>Interviews, and television appearances on gender identity and rights.</p></div><a class="go" href="press.html" aria-hidden="true" tabindex="-1">Interviews, TV →</a></li></ol></div></section><section class="section" id="demos"><div class="wrap"><div class="section-head"><span class="label">Try it</span><h2>In the browser</h2></div><ol class="rows"><li><span class="label">Demo</span><div><h3><a href="https://ccrma.stanford.edu/~celeste/AetherMapper/AetherMapper/">AetherMapper</a></h3><p>Opens in the browser.</p></div><a class="go" href="https://ccrma.stanford.edu/~celeste/AetherMapper/AetherMapper/" aria-hidden="true" tabindex="-1">Open ↗</a></li><li><span class="label">Demo</span><div><h3><a href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html">CQenze</a></h3><p>Write patterns and hear them, no install.</p></div><a class="go" href="https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html" aria-hidden="true" tabindex="-1">Open ↗</a></li><li><span class="label">Demo</span><div><h3><a href="https://algorithmic-scape.art/">Algorithmic Scape</a></h3><p>Opens in the browser.</p></div><a class="go" href="https://algorithmic-scape.art/" aria-hidden="true" tabindex="-1">Open ↗</a></li></ol></div></section><section class="section" id="listen"><div class="wrap"><div class="section-head"><span class="label">Listen</span><h2>Secretos del viento</h2><p>Digital album, Pueblo Nuevo Records (Chile).</p></div><div class="indent"><iframe title="Secretos del viento on Spotify" style="border:0;width:100%;max-width:var(--measure);display:block" height="152" loading="lazy"
+  src="https://open.spotify.com/embed/album/5Scb1zMFTqI7BHgnRYyOa9?utm_source=generator&amp;theme=0"
+  allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <ul>
+      <li><a href="https://www.instagram.com/essteb/">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@essteb">YouTube</a></li>
+      <li><a href="https://celestebetancur.bandcamp.com/">Bandcamp</a></li>
+      <li><a href="https://github.com/celestebetancur">GitHub</a></li>
+      <li><a href="https://www.facebook.com/celestebmusic">Facebook</a></li>
+      <li><a href="https://twitter.com/essteb">X / Twitter</a></li>
+    </ul>
+    <p class="meta">© 2026 Celeste Betancur</p>
+  </div>
+</footer>
+<script src="site.js" defer></script>
+<script src="threejs/three.min.js" defer></script>
+<script src="attractor.js" defer></script>
 </body>
-
 </html>
