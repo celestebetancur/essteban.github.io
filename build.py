@@ -266,7 +266,7 @@ areas_html = '<ol class="rows">' + "".join(
     for h, n, t, d, m in AREAS) + "</ol>"
 
 DEMOS = [
- ("https://ccrma.stanford.edu/~celeste/AetherMapper/AetherMapper/", "AetherMapper", "Opens in the browser."),
+ ("https://ccrma.stanford.edu/~celeste/AetherMapper/", "AetherMapper", "Opens in the browser."),
  ("https://ccrma.stanford.edu/~celeste/CQenze/cqenze.html", "CQenze", "Write patterns and hear them, no install."),
  ("https://algorithmic-scape.art/", "Algorithmic Scape", "Opens in the browser."),
 ]
