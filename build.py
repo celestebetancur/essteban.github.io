@@ -302,6 +302,7 @@ page("index.html", "Home", "Celeste Betancur: composer, live coder, instrument b
 
 # ------------------------------------------------------------------ music
 rel = [("img/agua.jpg", "Agua", "12″ vinyl · Poderes Inútiles (Colombia)", [("Bandcamp", "https://celestebetancur.bandcamp.com/album/agua")]),
+       ("img/beyond.jpg", "Beyond the Shadow Your Voice Lies", "Digital album · Poderes Inútiles (Colombia)", [("Spotify", "https://open.spotify.com/album/3Aos7vbCJ9QRvj5i2NHncH")]),
        ("img/secretos.jpg", "Secretos del viento", "Digital album · Pueblo Nuevo Records (Chile)", [("Spotify", "https://open.spotify.com/album/5Scb1zMFTqI7BHgnRYyOa9"), ("Apple Music", "https://music.apple.com/co/album/secretos-del-viento/1571581431")]),
        ("img/texturas.jpg", "Texturas inesperadas", "Digital EP · Fragment A (Argentina)", [("Spotify", "https://open.spotify.com/album/75jQhCORlX3driTWjOtYhF"), ("Apple Music", "https://music.apple.com/co/album/texturas-inesperadas-ep/1592415845")])]
 def rlinks(ls):
